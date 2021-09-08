@@ -1,0 +1,30 @@
+services:
+
+  docker-socket-proxy:
+    image: tecnativa/docker-socket-proxy
+    container_name: docker-socket-proxy
+    security_opt:
+      - label=disable
+    environment:
+      - CONTAINERS=1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  traefik:
+    depends_on:
+      - docker-socket-proxy
+    image: traefik:latest
+    container_name: traefik
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /containers/traefik/traefik.yml:/traefik.yml:Z
+      - /containers/traefik/providers:/providers:Z
+      - /containers/traefik/certificates:/certificates:Z
+    networks:
+      - traefik
+
+networks:
+  traefik:
+    external: true

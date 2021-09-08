@@ -1,0 +1,23 @@
+services:
+
+  asf:
+    image: justarchi/archisteamfarm
+    container_name: asf
+    user: 1000:1000
+    volumes:
+      - /containers/asf:/app/config:Z
+    networks:
+      - traefik
+    labels:
+      - io.containers.autoupdate=registry
+      - traefik.enable=true
+      - traefik.http.routers.asf.tls=true
+      - traefik.http.routers.asf.entrypoints=websecure
+      - traefik.http.routers.asf.rule=PathPrefix(`/asf`)
+      - traefik.http.services.asf.loadbalancer.server.port=1242
+
+      - traefik.http.services.asf.loadBalancer.passHostHeader=true
+
+networks:
+  traefik:
+    external: true

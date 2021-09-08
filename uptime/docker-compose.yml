@@ -1,0 +1,20 @@
+services:
+
+  kuma:
+    image: louislam/uptime-kuma
+    container_name: kuma
+    volumes:
+      - /containers/uptime-kuma:/app/data:Z
+    networks:
+      - traefik
+    labels:
+      - io.containers.autoupdate=registry
+      - traefik.enable=true
+      - traefik.http.routers.kuma.tls=true
+      - traefik.http.routers.kuma.entrypoints=websecure
+      - traefik.http.routers.kuma.rule=PathPrefix(`/dashboard`, `/socket.io`, `/assets/{aaa:index|vendor|polyfills|PingChart}`)
+      - traefik.http.services.kuma.loadbalancer.server.port=3001
+
+networks:
+  traefik:
+    external: true

@@ -1,0 +1,28 @@
+services:
+
+  sonarr:
+    image: linuxserver/transmission
+    container_name: transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Africa/Tunis
+    ports:
+      - 51413:51413
+      - 51413:51413/udp
+    volumes:
+      - /containers/transmission:/config:Z
+      - /home/sk/Torrents:/downloads:z
+    networks:
+      - traefik
+    labels:
+      - io.containers.autoupdate=registry
+      - traefik.enable=true
+      - traefik.http.routers.transmission.tls=true
+      - traefik.http.routers.transmission.entrypoints=websecure
+      - traefik.http.routers.transmission.rule=PathPrefix(`/transmission`)
+      - traefik.http.services.transmission.loadbalancer.server.port=9091
+
+networks:
+  traefik:
+    external: true

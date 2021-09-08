@@ -1,0 +1,23 @@
+services:
+
+  sonarr:
+    image: b4bz/homer
+    container_name: homer
+    environment:
+      - UID=1000
+      - GID=1000
+    volumes:
+      - /containers/homer:/www/assets:Z
+    networks:
+      - traefik
+    labels:
+      - io.containers.autoupdate=registry
+      - traefik.enable=true
+      - traefik.http.routers.homer.tls=true
+      - traefik.http.routers.homer.entrypoints=websecure
+      - traefik.http.routers.homer.rule=PathPrefix(`/`)
+      - traefik.http.services.homer.loadbalancer.server.port=8080
+
+networks:
+  traefik:
+    external: true
