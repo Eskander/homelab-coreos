@@ -1,6 +1,6 @@
 services:
 
-  sonarr:
+  transmission:
     image: linuxserver/transmission
     container_name: transmission
     environment:
