@@ -10,10 +10,11 @@ services:
       - traefik.enable=true
       - traefik.http.routers.whoami.tls=true
       - traefik.http.routers.whoami.entrypoints=websecure
-      - traefik.http.routers.whoami.middlewares=whoami_stripprefix
       - traefik.http.routers.whoami.rule=PathPrefix(`/whoami`)
       - traefik.http.services.whoami.loadbalancer.server.port=80
-      - traefik.http.middlewares.whoami_stripprefix.stripprefix.prefixes=/whoami
+
+      - traefik.http.routers.whoami.middlewares=whoami_spfx
+      - traefik.http.middlewares.whoami_spfx.stripprefix.prefixes=/whoami
 
 networks:
   traefik:
