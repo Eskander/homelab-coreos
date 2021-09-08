@@ -19,9 +19,6 @@ services:
       - traefik.http.routers.jellyfin.rule=PathPrefix(`/jellyfin`)
       - traefik.http.services.jellyfin.loadbalancer.server.port=8096
 
-
-      - "traefik.http.services.jellyfin.loadBalancer.passHostHeader=true"
-
 networks:
   traefik:
     external: true
