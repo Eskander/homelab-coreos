@@ -9,6 +9,8 @@ services:
       - CONTAINERS=1
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    labels:
+      - io.containers.autoupdate=registry
 
   traefik:
     depends_on:
@@ -24,6 +26,8 @@ services:
       - /containers/traefik/certificates:/certificates:Z
     networks:
       - traefik
+    labels:
+      - io.containers.autoupdate=registry
 
 networks:
   traefik:

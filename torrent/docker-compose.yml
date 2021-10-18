@@ -14,6 +14,7 @@ services:
     networks:
       - traefik
     labels:
+      - io.containers.autoupdate=registry
       - traefik.enable=true
       - traefik.http.routers.sonarr.tls=true
       - traefik.http.routers.sonarr.entrypoints=websecure
@@ -34,6 +35,7 @@ services:
     networks:
       - traefik
     labels:
+      - io.containers.autoupdate=registry
       - traefik.enable=true
       - traefik.http.routers.radarr.tls=true
       - traefik.http.routers.radarr.entrypoints=websecure
