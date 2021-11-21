@@ -18,7 +18,7 @@ services:
       - traefik.enable=true
       - traefik.http.routers.sonarr.tls=true
       - traefik.http.routers.sonarr.entrypoints=websecure
-      - traefik.http.routers.sonarr.rule=PathPrefix(`/sonarr`)
+      - traefik.http.routers.sonarr.rule=Host(`sonarr.${DOMAIN_NAME}`)
       - traefik.http.services.sonarr.loadbalancer.server.port=8989
 
   radarr:
@@ -39,7 +39,7 @@ services:
       - traefik.enable=true
       - traefik.http.routers.radarr.tls=true
       - traefik.http.routers.radarr.entrypoints=websecure
-      - traefik.http.routers.radarr.rule=PathPrefix(`/radarr`)
+      - traefik.http.routers.radarr.rule=Host(`radarr.${DOMAIN_NAME}`)
       - traefik.http.services.radarr.loadbalancer.server.port=7878
 
   prowlarr:
@@ -58,7 +58,7 @@ services:
       - traefik.enable=true
       - traefik.http.routers.prowlarr.tls=true
       - traefik.http.routers.prowlarr.entrypoints=websecure
-      - traefik.http.routers.prowlarr.rule=PathPrefix(`/prowlarr`)
+      - traefik.http.routers.prowlarr.rule=Host(`prowlarr.${DOMAIN_NAME}`)
       - traefik.http.services.prowlarr.loadbalancer.server.port=9696
 
   transmission:
@@ -81,7 +81,7 @@ services:
       - traefik.enable=true
       - traefik.http.routers.transmission.tls=true
       - traefik.http.routers.transmission.entrypoints=websecure
-      - traefik.http.routers.transmission.rule=PathPrefix(`/transmission`)
+      - traefik.http.routers.transmission.rule=Host(`transmission.${DOMAIN_NAME}`)
       - traefik.http.services.transmission.loadbalancer.server.port=9091
 
 networks:

@@ -14,7 +14,7 @@ services:
       - traefik.enable=true
       - traefik.http.routers.kuma.tls=true
       - traefik.http.routers.kuma.entrypoints=websecure
-      - traefik.http.routers.kuma.rule=PathPrefix(`/dashboard`, `/socket.io`, `/assets/{aaa:index|vendor|polyfills|PingChart}`)
+      - traefik.http.routers.kuma.rule=Host(`kuma.${DOMAIN_NAME}`)
       - traefik.http.services.kuma.loadbalancer.server.port=3001
 
 networks:
