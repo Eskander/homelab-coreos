@@ -11,9 +11,9 @@ services:
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true
+      - traefik.http.routers.asf.entrypoints=websecure
       - traefik.http.routers.asf.tls=true
       - traefik.http.routers.asf.tls.certresolver=letsencrypt
-      - traefik.http.routers.asf.entrypoints=websecure
       - traefik.http.routers.asf.rule=Host(`asf.${DOMAIN_NAME}`)
       - traefik.http.services.asf.loadbalancer.server.port=1242
 
