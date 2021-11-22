@@ -14,6 +14,7 @@ services:
       - io.containers.autoupdate=registry
       - traefik.enable=true
       - traefik.http.routers.homer.tls=true
+      - traefik.http.routers.homer.tls.certresolver=letsencrypt
       - traefik.http.routers.homer.entrypoints=websecure
       - traefik.http.routers.homer.rule=Host(`homeserver.${DOMAIN_NAME}`)
       - traefik.http.services.homer.loadbalancer.server.port=8080
