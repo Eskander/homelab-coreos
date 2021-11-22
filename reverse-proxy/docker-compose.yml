@@ -23,11 +23,16 @@ services:
     volumes:
       - /containers/traefik/traefik.yml:/traefik.yml:Z
       - /containers/traefik/providers:/providers:Z
-      - /containers/traefik/certificates:/certificates:Z
+      - /containers/traefik/acme.json:/acme.json:Z
     networks:
       - traefik
     labels:
       - io.containers.autoupdate=registry
+      - traefik.enable=true
+      - traefik.http.routers.traefik.tls=true
+      - traefik.http.routers.traefik.entrypoints=websecure
+      - traefik.http.routers.traefik.rule=Host(`traefik.${DOMAIN_NAME}`)
+      - traefik.http.routers.traefik.service=api@internal
 
 networks:
   traefik:
