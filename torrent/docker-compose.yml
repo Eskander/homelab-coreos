@@ -20,6 +20,7 @@ services:
       - traefik.http.routers.sonarr.tls=true
       - traefik.http.routers.sonarr.tls.certresolver=letsencrypt
       - traefik.http.routers.sonarr.rule=Host(`sonarr.${DOMAIN_NAME}`)
+      - traefik.http.routers.sonarr.middlewares=homer-cors@file
       - traefik.http.services.sonarr.loadbalancer.server.port=8989
 
   radarr:
@@ -42,6 +43,7 @@ services:
       - traefik.http.routers.radarr.tls=true
       - traefik.http.routers.radarr.tls.certresolver=letsencrypt
       - traefik.http.routers.radarr.rule=Host(`radarr.${DOMAIN_NAME}`)
+      - traefik.http.routers.radarr.middlewares=homer-cors@file
       - traefik.http.services.radarr.loadbalancer.server.port=7878
 
   prowlarr:
