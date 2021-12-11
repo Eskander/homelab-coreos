@@ -3,10 +3,10 @@ services:
   kuma:
     image: louislam/uptime-kuma
     container_name: kuma
-    volumes:
-      - /containers/uptime-kuma:/app/data:Z
     cap_add:
       - NET_RAW
+    volumes:
+      - /containers/uptime-kuma:/app/data:Z
     networks:
       - traefik
     labels:

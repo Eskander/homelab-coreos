@@ -3,10 +3,10 @@ services:
   docker-socket-proxy:
     image: tecnativa/docker-socket-proxy
     container_name: docker-socket-proxy
-    security_opt:
-      - label=disable
     environment:
       - CONTAINERS=1
+    security_opt:
+      - label=disable
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     labels:
