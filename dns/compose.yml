@@ -9,8 +9,8 @@ services:
       - 54:53/tcp
       - 54:53/udp
     volumes:
-      - /containers/pihole/config:/etc/pihole:Z
-      - /containers/pihole/dnsmasq:/etc/dnsmasq.d:Z
+      - /home/container/pihole/config:/etc/pihole:Z
+      - /home/container/pihole/dnsmasq:/etc/dnsmasq.d:Z
     networks:
       - traefik
     labels:

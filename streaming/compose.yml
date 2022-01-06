@@ -5,8 +5,8 @@ services:
     container_name: jellyfin
     user: 1000:1000
     volumes:
-      - /containers/jellyfin/config:/config:Z
-      - /containers/jellyfin/cache:/cache:Z
+      - /home/container/jellyfin/config:/config:Z
+      - /home/container/jellyfin/cache:/cache:Z
       - /home/sk/Anime-TV:/tv:z
       - /home/sk/Anime-Movies:/movies:z
     networks:

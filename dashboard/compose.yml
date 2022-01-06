@@ -7,7 +7,7 @@ services:
       - UID=1000
       - GID=1000
     volumes:
-      - /containers/homer:/www/assets:Z
+      - /home/container/homer:/www/assets:Z
     networks:
       - traefik
     labels:

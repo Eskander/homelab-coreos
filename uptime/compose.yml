@@ -6,7 +6,7 @@ services:
     cap_add:
       - NET_RAW
     volumes:
-      - /containers/uptime-kuma:/app/data:Z
+      - /home/container/uptime-kuma:/app/data:Z
     networks:
       - traefik
     labels:

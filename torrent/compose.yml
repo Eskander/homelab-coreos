@@ -8,7 +8,7 @@ services:
       - PGID=1000
       - TZ=Africa/Tunis
     volumes:
-      - /containers/sonarr:/config:Z
+      - /home/container/sonarr:/config:Z
       - /home/sk/Anime-TV:/tv:z
       - /home/sk/Torrents:/downloads:z
     networks:
@@ -31,7 +31,7 @@ services:
       - PGID=1000
       - TZ=Africa/Tunis 
     volumes:
-      - /containers/radarr:/config:Z
+      - /home/container/radarr:/config:Z
       - /home/sk/Anime-Movies:/movies:z
       - /home/sk/Torrents:/downloads:z
     networks:
@@ -54,7 +54,7 @@ services:
       - PGID=1000
       - TZ=Africa/Tunis
     volumes:
-      - /containers/prowlarr:/config:Z
+      - /home/container/prowlarr:/config:Z
     networks:
       - traefik
     labels:
@@ -77,7 +77,7 @@ services:
       - 51413:51413
       - 51413:51413/udp
     volumes:
-      - /containers/transmission:/config:Z
+      - /home/container/transmission:/config:Z
       - /home/sk/Torrents:/downloads:z
     networks:
       - traefik

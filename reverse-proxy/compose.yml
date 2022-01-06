@@ -21,9 +21,9 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - /containers/traefik/traefik.yml:/traefik.yml:Z
-      - /containers/traefik/providers:/providers:Z
-      - /containers/traefik/acme.json:/acme.json:Z
+      - /home/container/traefik/traefik.yml:/traefik.yml:Z
+      - /home/container/traefik/providers:/providers:Z
+      - /home/container/traefik/acme.json:/acme.json:Z
     networks:
       - traefik
     labels:
