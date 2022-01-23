@@ -17,12 +17,18 @@ services:
       - docker-socket-proxy
     image: traefik:latest
     container_name: traefik
+    environment:
+      - OVH_ENDPOINT_FILE=/secrets/endpoint.txt
+      - OVH_APPLICATION_KEY_FILE=/secrets/application_key.txt
+      - OVH_APPLICATION_SECRET_FILE=/secrets/application_secret.txt
+      - OVH_CONSUMER_KEY_FILE=/secrets/consumer_key.txt
     ports:
       - 80:80
       - 443:443
     volumes:
       - /home/container/traefik/traefik.yml:/traefik.yml:Z
       - /home/container/traefik/providers:/providers:Z
+      - /home/container/traefik/secrets:/secrets:Z
       - /home/container/traefik/acme.json:/acme.json:Z
     networks:
       - traefik
