@@ -1,0 +1,25 @@
+services:
+
+  prowlarr:
+    image: linuxserver/prowlarr:develop
+    container_name: prowlarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Africa/Tunis
+    volumes:
+      - /home/container/prowlarr:/config:Z
+    networks:
+      - traefik
+    labels:
+      - io.containers.autoupdate=registry
+      - traefik.enable=true
+      - traefik.http.routers.prowlarr.entrypoints=websecure
+      - traefik.http.routers.prowlarr.tls=true
+      - traefik.http.routers.prowlarr.tls.certresolver=letsencrypt
+      - traefik.http.routers.prowlarr.rule=Host(`prowlarr.${DOMAIN_NAME}`)
+      - traefik.http.services.prowlarr.loadbalancer.server.port=9696
+
+networks:
+  traefik:
+    external: true
