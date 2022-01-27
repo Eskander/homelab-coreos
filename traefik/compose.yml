@@ -29,6 +29,7 @@ services:
     networks:
       - proxy
       - traefik
+      - pihole
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true
@@ -42,4 +43,6 @@ networks:
   proxy:
     external: false
   traefik:
+    external: true
+  pihole:
     external: true

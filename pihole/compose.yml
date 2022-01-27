@@ -5,14 +5,14 @@ services:
     container_name: pihole
     environment:
       - TZ=Africa/Tunis
-    ports:
-      - 54:53/tcp
-      - 54:53/udp
+    #ports:
+    #  - 53:53/tcp
+    #  - 53:53/udp
     volumes:
       - /home/container/pihole/config:/etc/pihole:Z
       - /home/container/pihole/dnsmasq:/etc/dnsmasq.d:Z
     networks:
-      - traefik
+      - pihole
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true
@@ -23,5 +23,5 @@ services:
       - traefik.http.services.pihole.loadbalancer.server.port=80
 
 networks:
-  traefik:
+  pihole:
     external: true
