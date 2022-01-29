@@ -1,0 +1,23 @@
+services:
+
+  traefik-forward-auth:
+    image: thomseddon/traefik-forward-auth
+    container_name: traefik-forward-auth
+    environment:
+      - CONFIG=/data/config.ini
+    volumes:
+      - /home/container/traefik-forward-auth:/data:Z
+    networks:
+      - traefik
+    labels:
+      - io.containers.autoupdate=registry
+      - traefik.enable=true
+      - traefik.http.routers.traefik-auth.entrypoints=websecure
+      - traefik.http.routers.traefik-auth.tls=true
+      - traefik.http.routers.traefik-auth.tls.certresolver=letsencrypt
+      - traefik.http.routers.traefik-auth.rule=Host(`oauth.${DOMAIN_NAME}`)
+      - traefik.http.services.traefik-auth.loadbalancer.server.port=4181
+
+networks:
+  traefik:
+    external: true
