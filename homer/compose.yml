@@ -6,7 +6,7 @@ services:
       - UID=1000
       - GID=1000
     volumes:
-      - /home/container/homer:/www/assets:Z
+      - homer:/www/assets:Z
     networks:
       - traefik
     labels:
@@ -17,6 +17,11 @@ services:
       - traefik.http.routers.homer.tls.certresolver=letsencrypt
       - traefik.http.routers.homer.rule=Host(`homeserver.${DOMAIN_NAME}`)
       - traefik.http.services.homer.loadbalancer.server.port=8080
+
+volumes:
+  homer:
+    name: homer
+    external: true
 
 networks:
   traefik:
