@@ -1,5 +1,4 @@
 services:
-
   homer:
     image: b4bz/homer
     container_name: homer

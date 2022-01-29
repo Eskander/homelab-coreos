@@ -1,5 +1,4 @@
 services:
-
   whoami:
     image: traefik/whoami
     container_name: whoami

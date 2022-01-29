@@ -1,5 +1,4 @@
 services:
-
   kuma:
     image: louislam/uptime-kuma
     container_name: kuma

@@ -1,5 +1,4 @@
 # services:
-
 #   cockpit:
 #     image: cockpit/ws
 #     container_name: cockpit

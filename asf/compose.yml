@@ -1,5 +1,4 @@
 services:
-
   asf:
     image: justarchi/archisteamfarm
     container_name: asf

@@ -1,5 +1,4 @@
 services:
-
   prowlarr:
     image: linuxserver/prowlarr:develop
     container_name: prowlarr

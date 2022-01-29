@@ -1,5 +1,4 @@
 services:
-
   transmission:
     image: linuxserver/transmission
     container_name: transmission
