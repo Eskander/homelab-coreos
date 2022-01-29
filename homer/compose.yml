@@ -6,7 +6,7 @@ services:
       - UID=1000
       - GID=1000
     volumes:
-      - homer:/www/assets:Z
+      - homer:/www/assets
     networks:
       - traefik
     labels:

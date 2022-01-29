@@ -8,8 +8,8 @@ services:
     #  - 53:53/tcp
     #  - 53:53/udp
     volumes:
-      - /home/container/pihole/config:/etc/pihole:Z
-      - /home/container/pihole/dnsmasq:/etc/dnsmasq.d:Z
+      - pihole:/etc/pihole
+      - pihole-dnsmasq:/etc/dnsmasq.d
     networks:
       - pihole
     labels:
@@ -20,6 +20,14 @@ services:
 #      - traefik.http.routers.pihole.tls.certresolver=letsencrypt
       - traefik.http.routers.pihole.rule=Host(`pihole.${DOMAIN_NAME}`)
       - traefik.http.services.pihole.loadbalancer.server.port=80
+
+volumes:
+  pihole:
+    name: pihole
+    external: true
+  pihole-dnsmasq:
+    name: pihole-dnsmasq
+    external: true
 
 networks:
   pihole:

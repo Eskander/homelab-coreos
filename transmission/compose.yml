@@ -10,7 +10,7 @@ services:
       - 51413:51413
       - 51413:51413/udp
     volumes:
-      - /home/container/transmission:/config:Z
+      - transmission:/config
       - /home/sk/Torrents:/downloads:z
     networks:
       - traefik
@@ -22,6 +22,11 @@ services:
       - traefik.http.routers.transmission.tls.certresolver=letsencrypt
       - traefik.http.routers.transmission.rule=Host(`transmission.${DOMAIN_NAME}`)
       - traefik.http.services.transmission.loadbalancer.server.port=9091
+
+volumes:
+  transmission:
+    name: transmission
+    external: true
 
 networks:
   traefik:

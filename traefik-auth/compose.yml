@@ -5,7 +5,7 @@ services:
     environment:
       - CONFIG=/data/config.ini
     volumes:
-      - /home/container/traefik-forward-auth:/data:Z
+      - traefik-forward-auth:/data
     networks:
       - traefik
     labels:
@@ -16,6 +16,11 @@ services:
       - traefik.http.routers.traefik-auth.tls.certresolver=letsencrypt
       - traefik.http.routers.traefik-auth.rule=Host(`oauth.${DOMAIN_NAME}`)
       - traefik.http.services.traefik-auth.loadbalancer.server.port=4181
+
+volumes:
+  traefik-forward-auth:
+    name: traefik-forward-auth
+    external: true
 
 networks:
   traefik:

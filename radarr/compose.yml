@@ -7,7 +7,7 @@ services:
       - PGID=1000
       - TZ=Africa/Tunis 
     volumes:
-      - /home/container/radarr:/config:Z
+      - radarr:/config
       - /home/sk/Anime-Movies:/movies:z
       - /home/sk/Torrents:/downloads:z
     networks:
@@ -21,6 +21,11 @@ services:
       - traefik.http.routers.radarr.rule=Host(`radarr.${DOMAIN_NAME}`)
       - traefik.http.routers.radarr.middlewares=homer-cors@file
       - traefik.http.services.radarr.loadbalancer.server.port=7878
+
+volumes:
+  radarr:
+    name: radarr
+    external: true
 
 networks:
   traefik:

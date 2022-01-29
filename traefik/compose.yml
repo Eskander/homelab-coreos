@@ -23,9 +23,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - /home/container/traefik/traefik.yml:/traefik.yml:Z
-      - /home/container/traefik/providers:/providers:Z
-      - /home/container/traefik/acme.json:/acme.json:Z
+      - traefik:/etc/traefik
     networks:
       - proxy
       - traefik
@@ -38,6 +36,11 @@ services:
       - traefik.http.routers.traefik.tls.certresolver=letsencrypt
       - traefik.http.routers.traefik.rule=Host(`traefik.${DOMAIN_NAME}`)
       - traefik.http.routers.traefik.service=api@internal
+
+volumes:
+  traefik:
+    name: traefik
+    external: true
 
 networks:
   proxy:

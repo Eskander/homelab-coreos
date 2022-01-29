@@ -7,7 +7,7 @@ services:
       - PGID=1000
       - TZ=Africa/Tunis
     volumes:
-      - /home/container/sonarr:/config:Z
+      - sonarr:/config
       - /home/sk/Anime-TV:/tv:z
       - /home/sk/Torrents:/downloads:z
     networks:
@@ -21,6 +21,11 @@ services:
       - traefik.http.routers.sonarr.rule=Host(`sonarr.${DOMAIN_NAME}`)
       - traefik.http.routers.sonarr.middlewares=homer-cors@file
       - traefik.http.services.sonarr.loadbalancer.server.port=8989
+
+volumes:
+  sonarr:
+    name: sonarr
+    external: true
 
 networks:
   traefik:
