@@ -8,8 +8,8 @@ services:
       - TZ=Africa/Tunis
     volumes:
       - sonarr:/config
-      - /home/sk/Anime-TV:/tv:z
-      - /home/sk/Torrents:/downloads:z
+      - /home/$USER/Anime-TV:/tv:z
+      - /home/$USER/Torrents:/downloads:z
     networks:
       - traefik
     labels:

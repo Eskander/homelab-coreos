@@ -11,7 +11,7 @@ services:
       - 51413:51413/udp
     volumes:
       - transmission:/config
-      - /home/sk/Torrents:/downloads:z
+      - /home/$USER/Torrents:/downloads:z
     networks:
       - traefik
     labels:

@@ -8,9 +8,9 @@ services:
     security_opt:
       - label=disable
     volumes:
-      - /run/podman/podman.sock:/var/run/docker.sock:ro
+      - /run/user/1000/podman/podman.sock:/var/run/docker.sock:ro
     networks:
-      - proxy
+      - traefik
     labels:
       - io.containers.autoupdate=registry
 
@@ -20,14 +20,12 @@ services:
     image: traefik:latest
     container_name: traefik
     ports:
-      - 80:80
-      - 443:443
+      - 8080:80
+      - 8443:443
     volumes:
       - traefik:/etc/traefik
     networks:
-      - proxy
       - traefik
-      - pihole
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true
@@ -43,9 +41,5 @@ volumes:
     external: true
 
 networks:
-  proxy:
-    external: false
   traefik:
-    external: true
-  pihole:
     external: true

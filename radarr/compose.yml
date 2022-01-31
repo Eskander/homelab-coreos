@@ -5,11 +5,11 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Africa/Tunis 
+      - TZ=Africa/Tunis
     volumes:
       - radarr:/config
-      - /home/sk/Anime-Movies:/movies:z
-      - /home/sk/Torrents:/downloads:z
+      - /home/$USER/Anime-Movies:/movies:z
+      - /home/$USER/Torrents:/downloads:z
     networks:
       - traefik
     labels:
