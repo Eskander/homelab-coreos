@@ -6,8 +6,8 @@ services:
     volumes:
       - jellyfin:/config
       - jellyfin-cache:/cache
-      - /home/$USER/Anime-TV:/tv:z
-      - /home/$USER/Anime-Movies:/movies:z
+      - /home/$USER/TV:/tv:z
+      - /home/$USER/Movies:/movies:z
     networks:
       - traefik
     labels:
