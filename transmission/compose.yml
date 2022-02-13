@@ -3,23 +3,21 @@ services:
     image: linuxserver/transmission
     container_name: transmission
     environment:
+      - TZ=${TIMEZONE}
       - PUID=1000
       - PGID=1000
-      - TZ=Africa/Tunis
     ports:
       - 51413:51413
       - 51413:51413/udp
     volumes:
       - transmission:/config
-      - /home/$USER/Torrents:/downloads:z
+      - ${HOME}/Torrents:/downloads:z
     networks:
       - traefik
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true
       - traefik.http.routers.transmission.entrypoints=websecure
-      - traefik.http.routers.transmission.tls=true
-      - traefik.http.routers.transmission.tls.certresolver=letsencrypt
       - traefik.http.routers.transmission.rule=Host(`transmission.${DOMAIN_NAME}`)
       - traefik.http.services.transmission.loadbalancer.server.port=9091
 

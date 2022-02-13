@@ -3,8 +3,8 @@ services:
     image: qmcgaw/ddns-updater
     container_name: ddns-updater
     environment:
+      - TZ=${TIMEZONE}
       - SHOUTRRR_ADDRESSES=${DDNS_DISCORD}
-      - TZ=Africa/Tunis
     volumes:
       - ddns-updater:/updater/data
     networks:
@@ -13,8 +13,6 @@ services:
       - io.containers.autoupdate=registry
       - traefik.enable=true
       - traefik.http.routers.ddns.entrypoints=websecure
-      - traefik.http.routers.ddns.tls=true
-      - traefik.http.routers.ddns.tls.certresolver=letsencrypt
       - traefik.http.routers.ddns.rule=Host(`ddns.${DOMAIN_NAME}`)
       - traefik.http.services.ddns.loadbalancer.server.port=8000
 

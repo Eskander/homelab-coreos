@@ -3,21 +3,19 @@ services:
     image: linuxserver/radarr
     container_name: radarr
     environment:
+      - TZ=${TIMEZONE}
       - PUID=1000
       - PGID=1000
-      - TZ=Africa/Tunis
     volumes:
       - radarr:/config
-      - /home/$USER/Movies:/movies:z
-      - /home/$USER/Torrents:/downloads:z
+      - ${HOME}/Movies:/movies:z
+      - ${HOME}/Torrents:/downloads:z
     networks:
       - traefik
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true
       - traefik.http.routers.radarr.entrypoints=websecure
-      - traefik.http.routers.radarr.tls=true
-      - traefik.http.routers.radarr.tls.certresolver=letsencrypt
       - traefik.http.routers.radarr.rule=Host(`radarr.${DOMAIN_NAME}`)
       - traefik.http.routers.radarr.middlewares=homer-cors@file
       - traefik.http.services.radarr.loadbalancer.server.port=7878

@@ -3,21 +3,19 @@ services:
     image: linuxserver/sonarr
     container_name: sonarr
     environment:
+      - TZ=${TIMEZONE}
       - PUID=1000
       - PGID=1000
-      - TZ=Africa/Tunis
     volumes:
       - sonarr:/config
-      - /home/$USER/TV:/tv:z
-      - /home/$USER/Torrents:/downloads:z
+      - ${HOME}/TV:/tv:z
+      - ${HOME}/Torrents:/downloads:z
     networks:
       - traefik
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true
       - traefik.http.routers.sonarr.entrypoints=websecure
-      - traefik.http.routers.sonarr.tls=true
-      - traefik.http.routers.sonarr.tls.certresolver=letsencrypt
       - traefik.http.routers.sonarr.rule=Host(`sonarr.${DOMAIN_NAME}`)
       - traefik.http.routers.sonarr.middlewares=homer-cors@file
       - traefik.http.services.sonarr.loadbalancer.server.port=8989

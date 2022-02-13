@@ -3,7 +3,7 @@ services:
     image: pihole/pihole
     container_name: pihole
     environment:
-      - TZ=Africa/Tunis
+      - TZ=${TIMEZONE}
     #ports:
     #  - 53:53/tcp
     #  - 53:53/udp
@@ -16,8 +16,6 @@ services:
       - io.containers.autoupdate=registry
       - traefik.enable=true
       - traefik.http.routers.pihole.entrypoints=websecure
-      - traefik.http.routers.pihole.tls=true
-#      - traefik.http.routers.pihole.tls.certresolver=letsencrypt
       - traefik.http.routers.pihole.rule=Host(`pihole.${DOMAIN_NAME}`)
       - traefik.http.services.pihole.loadbalancer.server.port=80
 

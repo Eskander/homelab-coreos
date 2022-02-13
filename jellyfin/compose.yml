@@ -6,16 +6,14 @@ services:
     volumes:
       - jellyfin:/config
       - jellyfin-cache:/cache
-      - /home/$USER/TV:/tv:z
-      - /home/$USER/Movies:/movies:z
+      - ${HOME}/TV:/tv:z
+      - ${HOME}/Movies:/movies:z
     networks:
       - traefik
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true
       - traefik.http.routers.jellyfin.entrypoints=websecure
-      - traefik.http.routers.jellyfin.tls=true
-      - traefik.http.routers.jellyfin.tls.certresolver=letsencrypt
       - traefik.http.routers.jellyfin.rule=Host(`jellyfin.${DOMAIN_NAME}`)
       - traefik.http.services.jellyfin.loadbalancer.server.port=8096
 

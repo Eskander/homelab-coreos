@@ -12,8 +12,6 @@ services:
       - io.containers.autoupdate=registry
       - traefik.enable=true
       - traefik.http.routers.traefik-auth.entrypoints=websecure
-      - traefik.http.routers.traefik-auth.tls=true
-      - traefik.http.routers.traefik-auth.tls.certresolver=letsencrypt
       - traefik.http.routers.traefik-auth.rule=Host(`oauth.${DOMAIN_NAME}`)
       - traefik.http.services.traefik-auth.loadbalancer.server.port=4181
 
