@@ -5,9 +5,11 @@ services:
     user: 1000:1000
     volumes:
       - jellyfin:/config
-      - jellyfin-cache:/cache
+      - jellyfin:/cache
       - ${HOME}/TV:/tv:z
       - ${HOME}/Movies:/movies:z
+    tmpfs:
+      - /media
     networks:
       - traefik
     labels:
@@ -20,9 +22,6 @@ services:
 volumes:
   jellyfin:
     name: jellyfin
-    external: true
-  jellyfin-cache:
-    name: jellyfin-cache
     external: true
 
 networks:
