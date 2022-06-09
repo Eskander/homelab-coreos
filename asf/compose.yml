@@ -5,6 +5,8 @@ services:
     user: 1000:1000
     volumes:
       - asf:/app/config
+    tmpfs:
+      - /app/logs
     networks:
       - traefik
     labels:
