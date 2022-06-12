@@ -12,6 +12,8 @@ services:
       - pihole-dnsmasq:/etc/dnsmasq.d
     networks:
       - pihole
+    healthcheck:
+      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true

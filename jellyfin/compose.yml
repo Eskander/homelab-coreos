@@ -8,10 +8,10 @@ services:
       - jellyfin:/cache
       - ${HOME}/TV:/tv:z
       - ${HOME}/Movies:/movies:z
-    tmpfs:
-      - /media
     networks:
       - traefik
+    healthcheck:
+      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true

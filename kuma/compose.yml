@@ -8,6 +8,8 @@ services:
       - uptime-kuma:/app/data
     networks:
       - traefik
+    healthcheck:
+      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true
