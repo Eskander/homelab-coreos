@@ -1,22 +1,5 @@
 services:
-
-  docker-socket-proxy:
-    image: tecnativa/docker-socket-proxy
-    container_name: docker-socket-proxy
-    environment:
-      - CONTAINERS=1
-    security_opt:
-      - label=disable
-    volumes:
-      - ${XDG_RUNTIME_DIR}/podman/podman.sock:/var/run/docker.sock:ro
-    networks:
-      - traefik
-    labels:
-      - io.containers.autoupdate=registry
-
   traefik:
-    depends_on:
-      - docker-socket-proxy
     image: traefik:latest
     container_name: traefik
     environment:
