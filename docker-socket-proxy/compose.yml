@@ -9,12 +9,12 @@ services:
     volumes:
       - ${XDG_RUNTIME_DIR}/podman/podman.sock:/var/run/docker.sock:ro
     networks:
-      - traefik
+      - socket_proxy
     healthcheck:
       test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
 
 networks:
-  traefik:
+  socket_proxy:
     external: true
