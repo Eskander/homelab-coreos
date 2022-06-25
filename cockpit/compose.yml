@@ -1,0 +1,23 @@
+services:
+  cockpit:
+    image: quay.io/cockpit/ws
+    container_name: cockpit
+    environment:
+      - COCKPIT_SSH_KEY_PATH=/id_rsa
+    volumes:
+      - $HOME/Cockpit/cockpit.conf:/etc/cockpit/cockpit.conf:ro,Z
+      - $HOME/Cockpit/id_rsa_cockpit:/id_rsa:ro,Z
+    networks:
+      - traefik
+    healthcheck:
+      test: [ "NONE" ]
+    labels:
+      - io.containers.autoupdate=registry
+      - traefik.enable=true
+      - traefik.http.routers.cockpit.entrypoints=websecure
+      - traefik.http.routers.cockpit.rule=Host(`cockpit.${DOMAIN_NAME}`)
+      - traefik.http.services.cockpit.loadbalancer.server.port=9090
+
+networks:
+  traefik:
+    external: true
