@@ -3,10 +3,10 @@ services:
     image: quay.io/cockpit/ws
     container_name: cockpit
     environment:
-      - COCKPIT_SSH_KEY_PATH=/id_rsa
+      - COCKPIT_SSH_KEY_PATH=/id_cockpit
     volumes:
       - $HOME/Cockpit/cockpit.conf:/etc/cockpit/cockpit.conf:ro,Z
-      - $HOME/Cockpit/id_rsa_cockpit:/id_rsa:ro,Z
+      - $HOME/Cockpit/id_cockpit:/id_cockpit:ro,Z
     networks:
       - traefik
     healthcheck:
