@@ -8,13 +8,9 @@ services:
     volumes:
       - homer:/www/assets
     networks:
-      - traefik
+      - homer
     labels:
       - io.containers.autoupdate=registry
-      - traefik.enable=true
-      - traefik.http.routers.homer.entrypoints=websecure
-      - traefik.http.routers.homer.rule=Host(`homeserver.${DOMAIN_NAME}`)
-      - traefik.http.services.homer.loadbalancer.server.port=8080
 
 volumes:
   homer:
@@ -22,5 +18,5 @@ volumes:
     external: true
 
 networks:
-  traefik:
+  homer:
     external: true

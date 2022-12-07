@@ -8,13 +8,9 @@ services:
     tmpfs:
       - /app/logs
     networks:
-      - traefik
+      - asf
     labels:
       - io.containers.autoupdate=registry
-      - traefik.enable=true
-      - traefik.http.routers.asf.entrypoints=websecure
-      - traefik.http.routers.asf.rule=Host(`asf.${DOMAIN_NAME}`)
-      - traefik.http.services.asf.loadbalancer.server.port=1242
 
 volumes:
   asf:
@@ -22,5 +18,5 @@ volumes:
     external: true
 
 networks:
-  traefik:
+  asf:
     external: true

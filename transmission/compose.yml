@@ -13,13 +13,9 @@ services:
       - transmission:/config
       - ${HOME}/Torrents:/downloads:z
     networks:
-      - traefik
+      - torrent
     labels:
       - io.containers.autoupdate=registry
-      - traefik.enable=true
-      - traefik.http.routers.transmission.entrypoints=websecure
-      - traefik.http.routers.transmission.rule=Host(`transmission.${DOMAIN_NAME}`)
-      - traefik.http.services.transmission.loadbalancer.server.port=9091
 
 volumes:
   transmission:
@@ -27,5 +23,5 @@ volumes:
     external: true
 
 networks:
-  traefik:
+  torrent:
     external: true

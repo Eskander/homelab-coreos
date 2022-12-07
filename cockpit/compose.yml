@@ -8,14 +8,10 @@ services:
       - $HOME/Cockpit/cockpit.conf:/etc/cockpit/cockpit.conf:ro,Z
       - $HOME/Cockpit/id_cockpit:/id_cockpit:ro,Z
     networks:
-      - traefik
+      - cockpit
     labels:
       - io.containers.autoupdate=registry
-      - traefik.enable=true
-      - traefik.http.routers.cockpit.entrypoints=websecure
-      - traefik.http.routers.cockpit.rule=Host(`cockpit.${DOMAIN_NAME}`)
-      - traefik.http.services.cockpit.loadbalancer.server.port=9090
 
 networks:
-  traefik:
+  cockpit:
     external: true

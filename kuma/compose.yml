@@ -7,13 +7,12 @@ services:
     volumes:
       - uptime-kuma:/app/data
     networks:
-      - traefik
+      - asf
+      - cockpit
+      - homer
+      - torrent
     labels:
       - io.containers.autoupdate=registry
-      - traefik.enable=true
-      - traefik.http.routers.kuma.entrypoints=websecure
-      - traefik.http.routers.kuma.rule=Host(`kuma.${DOMAIN_NAME}`)
-      - traefik.http.services.kuma.loadbalancer.server.port=3001
 
 volumes:
   uptime-kuma:
@@ -21,5 +20,11 @@ volumes:
     external: true
 
 networks:
-  traefik:
+  asf:
+    external: true
+  cockpit:
+    external: true
+  homer:
+    external: true
+  torrent:
     external: true

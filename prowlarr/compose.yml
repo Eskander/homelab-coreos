@@ -9,14 +9,9 @@ services:
     volumes:
       - prowlarr:/config
     networks:
-      - traefik
+      - torrent
     labels:
       - io.containers.autoupdate=registry
-      - traefik.enable=true
-      - traefik.http.routers.prowlarr.entrypoints=websecure
-      - traefik.http.routers.prowlarr.rule=Host(`prowlarr.${DOMAIN_NAME}`)
-      - traefik.http.routers.prowlarr.middlewares=homer-cors@file
-      - traefik.http.services.prowlarr.loadbalancer.server.port=9696
 
 volumes:
   prowlarr:
@@ -24,5 +19,5 @@ volumes:
     external: true
 
 networks:
-  traefik:
+  torrent:
     external: true

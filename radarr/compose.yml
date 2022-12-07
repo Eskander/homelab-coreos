@@ -11,14 +11,9 @@ services:
       - ${HOME}/Movies:/movies:z
       - ${HOME}/Torrents:/downloads:z
     networks:
-      - traefik
+      - torrent
     labels:
       - io.containers.autoupdate=registry
-      - traefik.enable=true
-      - traefik.http.routers.radarr.entrypoints=websecure
-      - traefik.http.routers.radarr.rule=Host(`radarr.${DOMAIN_NAME}`)
-      - traefik.http.routers.radarr.middlewares=homer-cors@file
-      - traefik.http.services.radarr.loadbalancer.server.port=7878
 
 volumes:
   radarr:
@@ -26,5 +21,5 @@ volumes:
     external: true
 
 networks:
-  traefik:
+  torrent:
     external: true

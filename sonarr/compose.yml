@@ -11,14 +11,9 @@ services:
       - ${HOME}/TV:/tv:z
       - ${HOME}/Torrents:/downloads:z
     networks:
-      - traefik
+      - torrent
     labels:
       - io.containers.autoupdate=registry
-      - traefik.enable=true
-      - traefik.http.routers.sonarr.entrypoints=websecure
-      - traefik.http.routers.sonarr.rule=Host(`sonarr.${DOMAIN_NAME}`)
-      - traefik.http.routers.sonarr.middlewares=homer-cors@file
-      - traefik.http.services.sonarr.loadbalancer.server.port=8989
 
 volumes:
   sonarr:
@@ -26,5 +21,5 @@ volumes:
     external: true
 
 networks:
-  traefik:
+  torrent:
     external: true

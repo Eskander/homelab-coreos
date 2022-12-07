@@ -6,10 +6,19 @@ services:
     environment:
       - TUNNEL_TOKEN=${CLOUDFLARE_TOKEN}
     networks:
-      - traefik
+      - asf
+      - cockpit
+      - homer
+      - torrent
     labels:
       - io.containers.autoupdate=registry
 
 networks:
-  traefik:
+  asf:
+    external: true
+  cockpit:
+    external: true
+  homer:
+    external: true
+  torrent:
     external: true
