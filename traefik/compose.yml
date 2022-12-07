@@ -1,6 +1,6 @@
 services:
   traefik:
-    image: traefik:latest
+    image: docker.io/library/traefik:latest
     container_name: traefik
     environment:
       - OVH_APPLICATION_KEY_FILE=/etc/traefik/secrets/OVH_APPLICATION_KEY.txt
@@ -15,8 +15,6 @@ services:
     networks:
       - traefik
       - socket_proxy
-    healthcheck:
-      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true

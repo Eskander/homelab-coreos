@@ -1,6 +1,6 @@
 services:
   jellyfin:
-    image: jellyfin/jellyfin
+    image: docker.io/jellyfin/jellyfin
     container_name: jellyfin
     user: 1000:1000
     volumes:
@@ -10,8 +10,6 @@ services:
       - ${HOME}/Movies:/movies:z
     networks:
       - traefik
-    healthcheck:
-      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true

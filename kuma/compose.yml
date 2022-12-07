@@ -1,6 +1,6 @@
 services:
   kuma:
-    image: louislam/uptime-kuma
+    image: docker.io/louislam/uptime-kuma
     container_name: kuma
     cap_add:
       - NET_RAW
@@ -8,8 +8,6 @@ services:
       - uptime-kuma:/app/data
     networks:
       - traefik
-    healthcheck:
-      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true

@@ -1,6 +1,6 @@
 services:
   ddns-updater:
-    image: qmcgaw/ddns-updater
+    image: docker.io/qmcgaw/ddns-updater
     container_name: ddns-updater
     environment:
       - TZ=${TIMEZONE}
@@ -9,8 +9,6 @@ services:
       - ddns-updater:/updater/data
     networks:
       - traefik
-    healthcheck:
-      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true

@@ -9,8 +9,6 @@ services:
       - $HOME/Cockpit/id_cockpit:/id_cockpit:ro,Z
     networks:
       - traefik
-    healthcheck:
-      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true

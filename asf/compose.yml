@@ -1,6 +1,6 @@
 services:
   asf:
-    image: justarchi/archisteamfarm
+    image: docker.io/justarchi/archisteamfarm
     container_name: asf
     user: 1000:1000
     volumes:
@@ -9,8 +9,6 @@ services:
       - /app/logs
     networks:
       - traefik
-    healthcheck:
-      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true

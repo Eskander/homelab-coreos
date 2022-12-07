@@ -1,6 +1,6 @@
 services:
   pihole:
-    image: pihole/pihole
+    image: docker.io/pihole/pihole
     container_name: pihole
     environment:
       - TZ=${TIMEZONE}
@@ -12,8 +12,6 @@ services:
       - pihole-dnsmasq:/etc/dnsmasq.d
     networks:
       - pihole
-    healthcheck:
-      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true

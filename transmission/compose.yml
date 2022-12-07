@@ -1,6 +1,6 @@
 services:
   transmission:
-    image: linuxserver/transmission
+    image: docker.io/linuxserver/transmission
     container_name: transmission
     environment:
       - TZ=${TIMEZONE}
@@ -14,8 +14,6 @@ services:
       - ${HOME}/Torrents:/downloads:z
     networks:
       - traefik
-    healthcheck:
-      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true

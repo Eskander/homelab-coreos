@@ -1,6 +1,6 @@
 services:
   homer:
-    image: b4bz/homer
+    image: docker.io/b4bz/homer
     container_name: homer
     environment:
       - UID=1000
@@ -9,8 +9,6 @@ services:
       - homer:/www/assets
     networks:
       - traefik
-    healthcheck:
-      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true

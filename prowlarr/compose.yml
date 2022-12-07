@@ -1,6 +1,6 @@
 services:
   prowlarr:
-    image: linuxserver/prowlarr:develop
+    image: docker.io/linuxserver/prowlarr:develop
     container_name: prowlarr
     environment:
       - TZ=${TIMEZONE}
@@ -10,8 +10,6 @@ services:
       - prowlarr:/config
     networks:
       - traefik
-    healthcheck:
-      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true

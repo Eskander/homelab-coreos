@@ -1,6 +1,6 @@
 services:
   docker-socket-proxy:
-    image: tecnativa/docker-socket-proxy
+    image: docker.io/tecnativa/docker-socket-proxy
     container_name: docker-socket-proxy
     environment:
       - CONTAINERS=1
@@ -10,8 +10,6 @@ services:
       - ${XDG_RUNTIME_DIR}/podman/podman.sock:/var/run/docker.sock:ro
     networks:
       - socket_proxy
-    healthcheck:
-      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
 

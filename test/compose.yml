@@ -1,11 +1,9 @@
 services:
   whoami:
-    image: traefik/whoami
+    image: docker.io/traefik/whoami
     container_name: whoami
     networks:
       - traefik
-    healthcheck:
-      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true

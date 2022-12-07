@@ -1,6 +1,6 @@
 services:
   traefik-forward-auth:
-    image: thomseddon/traefik-forward-auth
+    image: docker.io/thomseddon/traefik-forward-auth
     container_name: traefik-forward-auth
     environment:
       - CONFIG=/data/config.ini
@@ -8,8 +8,6 @@ services:
       - traefik-forward-auth:/data
     networks:
       - traefik
-    healthcheck:
-      test: [ "NONE" ]
     labels:
       - io.containers.autoupdate=registry
       - traefik.enable=true
