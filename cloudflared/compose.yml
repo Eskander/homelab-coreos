@@ -1,0 +1,15 @@
+services:
+  cloudflared:
+    image: docker.io/cloudflare/cloudflared
+    container_name: cloudflared
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TOKEN}
+    networks:
+      - traefik
+    labels:
+      - io.containers.autoupdate=registry
+
+networks:
+  traefik:
+    external: true
