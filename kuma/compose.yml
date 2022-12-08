@@ -11,6 +11,7 @@ services:
       - cockpit
       - homer
       - torrent
+      - socket_proxy
     labels:
       - io.containers.autoupdate=registry
 
@@ -27,4 +28,6 @@ networks:
   homer:
     external: true
   torrent:
+    external: true
+  socket_proxy:
     external: true
