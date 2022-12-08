@@ -3,14 +3,20 @@ services:
     image: quay.io/cockpit/ws
     container_name: cockpit
     environment:
-      - COCKPIT_SSH_KEY_PATH=/id_cockpit
+      - COCKPIT_SSH_KEY_PATH=/etc/cockpit/id_cockpit
     volumes:
-      - $HOME/Cockpit/cockpit.conf:/etc/cockpit/cockpit.conf:ro,Z
-      - $HOME/Cockpit/id_cockpit:/id_cockpit:ro,Z
+      - cockpit:/etc/cockpit
+    tmpfs:
+      - /etc/cockpit/ws-certs.d
     networks:
       - cockpit
     labels:
       - io.containers.autoupdate=registry
+
+volumes:
+  cockpit:
+    name: cockpit
+    external: true
 
 networks:
   cockpit:

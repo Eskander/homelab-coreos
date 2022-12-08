@@ -1,13 +1,13 @@
 services:
-  kuma:
+  uptime-kuma:
     image: docker.io/louislam/uptime-kuma
-    container_name: kuma
+    container_name: uptime-kuma
     cap_add:
       - NET_RAW
     volumes:
       - uptime-kuma:/app/data
     networks:
-      - asf
+      - archisteamfarm
       - cockpit
       - homer
       - torrent
@@ -21,7 +21,7 @@ volumes:
     external: true
 
 networks:
-  asf:
+  archisteamfarm:
     external: true
   cockpit:
     external: true

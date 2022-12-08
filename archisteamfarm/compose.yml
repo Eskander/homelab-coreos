@@ -1,22 +1,22 @@
 services:
-  asf:
+  archisteamfarm:
     image: docker.io/justarchi/archisteamfarm
-    container_name: asf
+    container_name: archisteamfarm
     user: 1000:1000
     volumes:
-      - asf:/app/config
+      - archisteamfarm:/app/config
     tmpfs:
       - /app/logs
     networks:
-      - asf
+      - archisteamfarm
     labels:
       - io.containers.autoupdate=registry
 
 volumes:
-  asf:
-    name: asf
+  archisteamfarm:
+    name: archisteamfarm
     external: true
 
 networks:
-  asf:
+  archisteamfarm:
     external: true

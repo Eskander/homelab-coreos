@@ -6,7 +6,7 @@ services:
     environment:
       - TUNNEL_TOKEN=${CLOUDFLARE_TOKEN}
     networks:
-      - asf
+      - archisteamfarm
       - cockpit
       - homer
       - torrent
@@ -14,7 +14,7 @@ services:
       - io.containers.autoupdate=registry
 
 networks:
-  asf:
+  archisteamfarm:
     external: true
   cockpit:
     external: true
