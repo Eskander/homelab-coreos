@@ -8,7 +8,7 @@ services:
       - PGID=1000
     volumes:
       - sonarr:/config
-      - ${HOME}/TV:/tv:z
+      - /var/mnt/nfs/TV:/tv:z,U
       - ${HOME}/Torrents:/downloads:z
     networks:
       - torrent
