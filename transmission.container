@@ -1,0 +1,17 @@
+[Container]
+Image=docker.io/linuxserver/transmission
+ContainerName=transmission
+Environment=PUID=%U
+Environment=GUID=%U
+PublishPort=51413:51413
+PublishPort=51413:51413/udp
+Volume=transmission.volume:/config
+Volume=%h/Torrents:/downloads:z
+Network=transmission.network
+Label=io.containers.autoupdate=registry
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
