@@ -1,0 +1,13 @@
+[Container]
+Image=docker.io/justarchi/archisteamfarm
+ContainerName=archisteamfarm
+Volume=archisteamfarm.volume:/app/config
+Network=archisteamfarm.network
+PodmanArgs=--mount type=tmpfs,destination=/app/logs
+Label=io.containers.autoupdate=registry
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
