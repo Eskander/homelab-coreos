@@ -1,0 +1,12 @@
+[Container]
+Image=docker.io/b4bz/homer
+ContainerName=homer
+Volume=homer.volume:/www/assets
+Network=homer.network
+Label=io.containers.autoupdate=registry
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
