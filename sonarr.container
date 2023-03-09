@@ -5,7 +5,7 @@ Environment=PUID=%U
 Environment=GUID=%U
 Volume=sonarr.volume:/config
 Volume=%h/Torrents:/downloads:z
-Volume=/var/mnt/nfs/TV:/tv:z,U
+Volume=/var/mnt/nfs/TV:/tv:U
 Network=transmission.network
 Label=io.containers.autoupdate=registry
 

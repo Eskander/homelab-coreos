@@ -5,7 +5,7 @@ Environment=PUID=%U
 Environment=GUID=%U
 Volume=radarr.volume:/config
 Volume=%h/Torrents:/downloads:z
-Volume=/var/mnt/nfs/Movies:/movies:z,U
+Volume=/var/mnt/nfs/Movies:/movies:U
 Network=transmission.network
 Label=io.containers.autoupdate=registry
 
