@@ -1,0 +1,14 @@
+[Container]
+Image=docker.io/tecnativa/docker-socket-proxy
+ContainerName=docker-socket-proxy
+Environment=CONTAINERS=1
+Volume=%t/podman/podman.sock:/var/run/docker.sock:ro
+Network=docker-socket-proxy.network
+PodmanArgs=--security-opt label=disable
+Label=io.containers.autoupdate=registry
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
