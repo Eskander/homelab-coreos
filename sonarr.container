@@ -1,0 +1,16 @@
+[Container]
+Image=docker.io/linuxserver/sonarr
+ContainerName=sonarr
+Environment=PUID=%U
+Environment=GUID=%U
+Volume=sonarr.volume:/config
+Volume=%h/Torrents:/downloads:z
+Volume=/var/mnt/nfs/TV:/tv:z,U
+Network=transmission.network
+Label=io.containers.autoupdate=registry
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
