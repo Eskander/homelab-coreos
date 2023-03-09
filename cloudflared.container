@@ -1,0 +1,16 @@
+[Container]
+Image=docker.io/cloudflare/cloudflared
+ContainerName=cloudflared
+Exec=tunnel run
+Network=archisteamfarm.network
+Network=cockpit.network
+Network=homer.network
+Network=transmission.network
+PodmanArgs=--secret CLOUDFLARE_TOKEN,type=env,target=TUNNEL_TOKEN
+Label=io.containers.autoupdate=registry
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
