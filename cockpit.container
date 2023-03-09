@@ -1,0 +1,14 @@
+[Container]
+Image=quay.io/cockpit/ws
+ContainerName=cockpit
+Environment=COCKPIT_SSH_KEY_PATH=/etc/cockpit/id_cockpit
+Volume=cockpit.volume:/etc/cockpit
+Network=cockpit.network
+PodmanArgs=--mount type=tmpfs,destination=/etc/cockpit/ws-certs.d
+Label=io.containers.autoupdate=registry
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
