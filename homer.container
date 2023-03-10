@@ -9,4 +9,4 @@ Label=io.containers.autoupdate=registry
 Restart=always
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
