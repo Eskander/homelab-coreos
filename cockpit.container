@@ -1,10 +1,10 @@
 [Container]
 Image=quay.io/cockpit/ws
 ContainerName=cockpit
-Environment=COCKPIT_SSH_KEY_PATH=/etc/cockpit/id_cockpit
+Environment=COCKPIT_SSH_KEY_PATH=/run/secrets/COCKPIT_SSH
 Volume=cockpit.volume:/etc/cockpit
 Network=cockpit.network
-PodmanArgs=--mount type=tmpfs,destination=/etc/cockpit/ws-certs.d
+PodmanArgs=--secret COCKPIT_SSH,type=mount,mode=0400
 Label=io.containers.autoupdate=registry
 
 [Service]
