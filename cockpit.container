@@ -5,6 +5,7 @@ Environment=COCKPIT_SSH_KEY_PATH=/run/secrets/COCKPIT_SSH
 Volume=cockpit.volume:/etc/cockpit
 Network=cockpit.network
 PodmanArgs=--secret COCKPIT_SSH,type=mount,mode=0400
+PodmanArgs=--log-driver=journald
 Label=io.containers.autoupdate=registry
 
 [Service]

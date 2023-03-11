@@ -5,6 +5,7 @@ Environment=CONTAINERS=1
 Volume=%t/podman/podman.sock:/var/run/docker.sock:ro
 Network=docker-socket-proxy.network
 PodmanArgs=--security-opt label=disable
+PodmanArgs=--log-driver=journald
 Label=io.containers.autoupdate=registry
 
 [Service]

@@ -8,6 +8,7 @@ PublishPort=51413:51413/udp
 Volume=transmission.volume:/config
 Volume=%h/Torrents:/downloads:z
 Network=transmission.network
+PodmanArgs=--log-driver=journald
 Label=io.containers.autoupdate=registry
 
 [Service]

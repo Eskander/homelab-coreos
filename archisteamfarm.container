@@ -4,6 +4,7 @@ ContainerName=archisteamfarm
 Volume=archisteamfarm.volume:/app/config
 Network=archisteamfarm.network
 PodmanArgs=--mount type=tmpfs,destination=/app/logs
+PodmanArgs=--log-driver=journald
 Label=io.containers.autoupdate=registry
 
 [Service]
