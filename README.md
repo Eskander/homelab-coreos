@@ -1,24 +1,18 @@
-# Home Server services
+# Homeserver Services
 
-This repositoty houses a collection of services I run for my personal needs on my home server.
+_A collection of services I run on a bare metal single node home server._
 
-The services are defined according to the [Compose specification](https://compose-spec.io/) and run on [Fedora CoreOS](https://getfedora.org/coreos) using rootless [Podman](https://podman.io/).
+The services run in containers on a [Fedora CoreOS](https://getfedora.org/coreos) host using rootless [Podman](https://podman.io/). The containers are defined in [Podman Quadlet](https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html) format and are managed as [Systemd](https://systemd.io/) services.
 
 ### FAQ
 
-#### 1. Create Podman container:
+#### How to replicate this setup?
 ```
-cd $SERVICE_DIRECTORY
-podman-compose up
-```
-
-#### 2. Create systemd service:
-```
-cd ~/.config/systemd/user/
-podman generate systemd  --name  --new  --files $CONTAINER_NAME
+git clone https://github.com/Eskander/homeserver-coreos ~/.config/containers/systemd/
+systemctl reboot
 ```
 
-#### 3. Redirect privileged port to rootless container
+#### Protip: Use [Firewalld](https://firewalld.org/) to forward a privileged port to a rootless container:
 ```
 sudo firewall-cmd --add-forward-port=port=80:proto=tcp:toport=8080
 ```
