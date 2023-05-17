@@ -2,13 +2,13 @@
 Image=docker.io/louislam/uptime-kuma
 ContainerName=uptime-kuma
 AddCapability=NET_RAW
+Secret=UPTIME_KUMA_TOKEN,type=env,target=UPTIME_KUMA_CLOUDFLARED_TOKEN
 Volume=uptime-kuma.volume:/app/data
 Network=archisteamfarm.network
 Network=cockpit.network
 Network=homer.network
 Network=transmission.network
 Network=docker-socket-proxy.network
-PodmanArgs=--secret UPTIME_KUMA_TOKEN,type=env,target=UPTIME_KUMA_CLOUDFLARED_TOKEN
 Label=io.containers.autoupdate=registry
 
 [Service]
