@@ -2,7 +2,7 @@
 Image=docker.io/linuxserver/prowlarr
 ContainerName=prowlarr
 Environment=PUID=%U
-Environment=GUID=%U
+Environment=GUID=%G
 Volume=prowlarr.volume:/config
 Network=transmission.network
 Label=io.containers.autoupdate=registry

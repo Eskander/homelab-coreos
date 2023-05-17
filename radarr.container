@@ -2,7 +2,7 @@
 Image=docker.io/linuxserver/radarr
 ContainerName=radarr
 Environment=PUID=%U
-Environment=GUID=%U
+Environment=GUID=%G
 Volume=radarr.volume:/config
 Volume=%h/Torrents:/downloads:z
 Volume=/var/mnt/nfs/Movies:/movies:U

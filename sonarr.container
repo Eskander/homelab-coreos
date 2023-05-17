@@ -2,7 +2,7 @@
 Image=docker.io/linuxserver/sonarr
 ContainerName=sonarr
 Environment=PUID=%U
-Environment=GUID=%U
+Environment=GUID=%G
 Volume=sonarr.volume:/config
 Volume=%h/Torrents:/downloads:z
 Volume=/var/mnt/nfs/TV:/tv:U

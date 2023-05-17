@@ -2,7 +2,7 @@
 Image=docker.io/linuxserver/transmission
 ContainerName=transmission
 Environment=PUID=%U
-Environment=GUID=%U
+Environment=GUID=%G
 PublishPort=51413:51413
 PublishPort=51413:51413/udp
 Volume=transmission.volume:/config
