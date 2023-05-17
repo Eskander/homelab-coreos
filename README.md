@@ -2,7 +2,7 @@
 
 _A collection of services I run on a bare metal single node home server._
 
-The services run in containers on a [Fedora CoreOS](https://getfedora.org/coreos) host using rootless [Podman](https://podman.io/). The containers are defined in [Podman Quadlet](https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html) format and are managed as [Systemd](https://systemd.io/) services.
+The services run in containers on a [Fedora CoreOS](https://fedoraproject.org/coreos/) host using rootless [Podman](https://podman.io/). The containers are defined in [Podman Quadlet](https://docs.podman.io/en/stable/markdown/podman-systemd.unit.5.html) format and are managed as [Systemd](https://systemd.io/) services.
 
 ### FAQ
 
