@@ -9,7 +9,6 @@ Network=homer.network
 Network=transmission.network
 Network=docker-socket-proxy.network
 PodmanArgs=--secret UPTIME_KUMA_TOKEN,type=env,target=UPTIME_KUMA_CLOUDFLARED_TOKEN
-PodmanArgs=--log-driver=journald
 Label=io.containers.autoupdate=registry
 
 [Service]

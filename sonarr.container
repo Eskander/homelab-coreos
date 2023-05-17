@@ -7,7 +7,6 @@ Volume=sonarr.volume:/config
 Volume=%h/Torrents:/downloads:z
 Volume=/var/mnt/nfs/TV:/tv:U
 Network=transmission.network
-PodmanArgs=--log-driver=journald
 Label=io.containers.autoupdate=registry
 
 [Service]

@@ -5,7 +5,6 @@ Environment=PUID=%U
 Environment=GUID=%U
 Volume=prowlarr.volume:/config
 Network=transmission.network
-PodmanArgs=--log-driver=journald
 Label=io.containers.autoupdate=registry
 
 [Service]
