@@ -1,4 +1,4 @@
-# Homeserver Services
+# Homeserver Services on CoreOS
 
 _A collection of services I run on a bare metal single node home server._
 
@@ -8,7 +8,7 @@ The services run in containers on a [Fedora CoreOS](https://fedoraproject.org/co
 
 #### How to replicate this setup?
 ```
-git clone https://github.com/Eskander/homeserver-coreos ~/.config/containers/systemd/
+git clone https://github.com/Eskander/coreos-homeserver ~/.config/containers/systemd/
 systemctl reboot
 ```
 
